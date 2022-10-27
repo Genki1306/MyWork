@@ -1,6 +1,7 @@
 package com.example.app.domain;
 
-import java.sql.Timestamp;
+
+import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
 
@@ -9,7 +10,9 @@ public class Recipe {
 	
 	private int id;
 	private String category;
+	
+	@NotBlank
 	private String title;
 	private String content;
-	private Timestamp update_datetime;
+	private String update_datetime;
 }
