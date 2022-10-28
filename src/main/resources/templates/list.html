@@ -66,6 +66,8 @@
             	<td>[[${recipes.update_datetime}]]</td>
             	<td>[[${recipes.category}]]</td>
             	<td>[[${recipes.title}]]</td>
+            	<td><a class="btn btn-primary"
+            		th:href="@{campRecipe/details/{id}(id=${recipes.id})}">詳細</a></td>
            	</tr>
           </tbody>
         </table>
@@ -73,7 +75,7 @@
       <form method="POST">
         <div class="footer-button row justify-content-end">
           <div class="col-1 m-1">
-            <a class="mt-4 btn btn-primary" th:href="@{/add}">会員の追加</a>
+            <a class="mt-4 btn btn-primary" th:href="@{campRecipe/add}">会員の追加</a>
             <input type="hidden"  name="isUpdate" value=false>
           </div>
         </div>

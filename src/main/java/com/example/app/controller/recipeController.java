@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.app.domain.Recipe;
 import com.example.app.service.RecipeService;
 
 @Controller
-@RequestMapping("campRecipe")
+@RequestMapping("/campRecipe")
 public class RecipeController {
 	
 	//レシピアプリの一覧画面を表示
@@ -25,11 +25,17 @@ public class RecipeController {
 		return "list";
 	}
 	
+	//詳細ページの表示
+	@GetMapping("/details/{id}")
+	public String details(@PathVariable int id, Model model)
+						throws Exception{
+		return "details";
+	}
+	
 	//レシピ追加ページの表示
 	@GetMapping("/add")
 	public String add(Model model) throws Exception{
-		Recipe recipe = new Recipe();
-		model.addAttribute("recipe", recipe);
+		
 		return "add";
 	}
 	
